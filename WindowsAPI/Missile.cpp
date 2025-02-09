@@ -24,7 +24,9 @@ void Missile::Update()
 {
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
-	_pos.y -= deltaTime * _stat.speed;
+	//y축방향이 아닌 포신 방향으로 발사
+	_pos.y -= deltaTime * _stat.speed * sin(_angle);
+	_pos.x += deltaTime * _stat.speed * cos(_angle);
 
 	// 충돌 처리
 	const vector<Object*> objects = GET_SINGLE(ObjectManager)->GetObjects();
@@ -51,7 +53,6 @@ void Missile::Update()
 
 			return;
 		}
-
 	}
 
 	//TODO
