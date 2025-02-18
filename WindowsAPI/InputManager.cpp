@@ -42,6 +42,8 @@ void InputManager::Update()
 			else
 				state = KeyState::None;
 		}
+
+		//A 키가 눌렸는지 확인하는 디버깅코드
 		//if (asciiKeys[static_cast<uint8>(KeyType::A)] & 0x80)
 		//{
 		//	MessageBox(NULL, L"A Key Pressed!", L"Debug", MB_OK);
